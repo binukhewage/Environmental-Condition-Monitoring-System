@@ -15,7 +15,10 @@ const Login = () => {
     setError("");
 
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/login`, { email, password })
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/login`, {
+        email,
+        password,
+      })
       .then((result) => {
         if (result.data.status === "Success") {
           localStorage.setItem("user", JSON.stringify(result.data.user));

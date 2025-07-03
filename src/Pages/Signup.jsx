@@ -15,7 +15,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/users`, {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/users`, {
         name,
         email,
         phone,
