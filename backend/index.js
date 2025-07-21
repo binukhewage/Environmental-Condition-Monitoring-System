@@ -9,6 +9,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+// Simple root route to prevent 404 on "/"
+app.get("/", (req, res) => {
+  res.send("API backend is running successfully.");
+});
+
 mongoose
   .connect(process.env.MONGODB_URI)
   .then(() => console.log("Connected to MongoDB"))
