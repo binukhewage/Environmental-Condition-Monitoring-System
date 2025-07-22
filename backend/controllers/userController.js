@@ -1,7 +1,7 @@
-const EmployeeModel = require("../models/employee");
+import EmployeeModel from "../models/employee.js";
 
 // Register new user
-exports.createUser = async (req, res) => {
+export const createUser = async (req, res) => {
   try {
     const employee = await EmployeeModel.create(req.body);
     res.json(employee);
@@ -11,7 +11,7 @@ exports.createUser = async (req, res) => {
 };
 
 // Login user
-exports.loginUser = async (req, res) => {
+export const loginUser = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await EmployeeModel.findOne({ email });
@@ -31,7 +31,7 @@ exports.loginUser = async (req, res) => {
 };
 
 // Get user by ID
-exports.getUserById = async (req, res) => {
+export const getUserById = async (req, res) => {
   const id = req.params.id;
   try {
     const user = await EmployeeModel.findById(id);
